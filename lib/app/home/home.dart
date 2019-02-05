@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tp3/app/learning/learning.dart';
-import 'package:tp3/app/tryout/tryout.dart';
+import 'package:tp3/app/training/training.dart';
 import 'package:tp3/util/strings.dart';
 
 class Home extends StatefulWidget {
@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   int _selectedIndex = 0;
-  final _widgets = [Learning(), Tryout()];
+  final _widgets = [Learning(), Training()];
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,8 @@ class HomeState extends State<Home> {
       ),
       body: Center(child: _widgets.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.book), title: Text("Learning")),
-        BottomNavigationBarItem(icon: Icon(Icons.create), title: Text("Tryout"))
+        BottomNavigationBarItem(icon: Icon(Icons.book), title: Text(strings.learn)),
+        BottomNavigationBarItem(icon: Icon(Icons.create), title: Text(strings.train))
       ],
       currentIndex: _selectedIndex,
           fixedColor: Colors.red,
