@@ -16,7 +16,7 @@ class Learning extends StatelessWidget {
               crossAxisSpacing: 10.0,
               crossAxisCount: 2,
               children: List<Widget>.generate(
-                  Hiraganas.length - 1,
+                  Hiraganas.length,
                   (i) =>
                       Card(
                             child: Column(children: <Widget>[

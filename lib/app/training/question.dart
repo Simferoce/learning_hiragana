@@ -20,6 +20,7 @@ class Question {
 
   Question() {
     answers.length = _NUMBER_OF_POSSIBLE_ANSWERS;
+    for (int i = 0; i < answers.length; ++i) answers[i] = Answer("");
   }
 
   generate() {
@@ -36,20 +37,26 @@ class Question {
         do {
           _randomIndex = _random.nextInt(Hiraganas.length);
           _tryRandom++;
-        } while (_randomIndex == rightAnswerIndex && _tryRandom < 5);
+        } while ((_randomIndex == rightAnswerIndex ||
+                -1 !=
+                    answers.indexWhere((answer) =>
+                        answer.answer !=
+                        Hiraganas.values.elementAt(_randomIndex))) &&
+            _tryRandom < 5);
 
         answers[i] = Answer(Hiraganas.values.elementAt(_randomIndex));
       }
     }
   }
 
-  void answerQuestion(Function() onRightAnswer, int index) {
+  void answerQuestion(Function() onRightAnswer, Function() onWrongAnswer, int index) {
     if (index == rightAnswerPosition) {
       onRightAnswer();
+    }
+    else {
+      onWrongAnswer();
     }
 
     answers[index].hasBeenAnswered = true;
   }
 }
-
-

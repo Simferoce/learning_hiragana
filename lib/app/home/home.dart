@@ -13,7 +13,6 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   int _selectedIndex = 0;
-  final _widgets = [Learning(), Training()];
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +22,21 @@ class HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(strings.title),
       ),
-      body: Center(child: _widgets.elementAt(_selectedIndex)),
-      bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.book), title: Text(strings.learn)),
-        BottomNavigationBarItem(icon: Icon(Icons.create), title: Text(strings.train))
-      ],
-      currentIndex: _selectedIndex,
+      body: Center(
+          child: IndexedStack(
+        index: _selectedIndex,
+        children: <Widget>[Learning(), Training()],
+      )),
+      bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.book), title: Text(strings.learn)),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.create), title: Text(strings.train))
+          ],
+          currentIndex: _selectedIndex,
           fixedColor: Colors.red,
-      onTap: _onItemTapped),
-
+          onTap: _onItemTapped),
     );
   }
 
@@ -40,5 +45,4 @@ class HomeState extends State<Home> {
       _selectedIndex = index;
     });
   }
-
 }
