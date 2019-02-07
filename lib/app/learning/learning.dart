@@ -5,7 +5,6 @@ import 'package:tp3/util/dimensions.dart';
 class Learning extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Center(
       child: CustomScrollView(
         primary: false,
@@ -16,27 +15,26 @@ class Learning extends StatelessWidget {
               crossAxisSpacing: 10.0,
               crossAxisCount: 2,
               children: List<Widget>.generate(
-                  Hiraganas.length,
-                  (i) =>
-                      Card(
-                            child: Column(children: <Widget>[
-                          Expanded(
-                            child: Padding(
-                                child: FittedBox(
-                                  child: Text(
-                                    Hiraganas.keys.elementAt(i),
-                                    textScaleFactor: FontScaleDisplay1,
-                                  ),
+                Hiraganas.length,
+                (i) => Card(
+                      child: Column(children: <Widget>[
+                        Expanded(
+                          child: Padding(
+                              child: FittedBox(
+                                child: Text(
+                                  Hiraganas.keys.elementAt(i),
+                                  textScaleFactor: FontScaleDisplay1,
                                 ),
-                                padding: EdgeInsets.all(PaddingLarge)),
-                          ),
-                          Padding(
-                            child: Text(Hiraganas.values.elementAt(i)),
-                            padding: EdgeInsets.only(bottom: PaddingLarge),
-                          )
-                        ]))
-
-                      ),
+                              ),
+                              padding: EdgeInsets.all(PaddingLarge)),
+                        ),
+                        Padding(
+                          child: Text(Hiraganas.values.elementAt(i)),
+                          padding: EdgeInsets.only(bottom: PaddingLarge),
+                        )
+                      ]),
+                    ),
+              ),
             ),
           ),
         ],

@@ -6,7 +6,6 @@ import 'package:tp3/util/strings.dart';
 class Home extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return HomeState();
   }
 }
