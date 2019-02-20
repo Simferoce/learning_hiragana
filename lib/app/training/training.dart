@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:tp3/app/training/question.dart';
 import 'package:tp3/util/dimensions.dart';
 
+//BEN_CORRECTION : Défauts d'indentation un peu partout, surtout quand vient le temps de décalrer des
+//                 Widgets.
+
+//BEN_CORRECTION : Ceci n'est pas une constante (tu a même un warning qui l'indique).
+//                 Une constante utilise le mot clé const.
 final NUMBER_OF_CHOICE_BUTTONS = 3;
 
 class Training extends StatefulWidget {
@@ -9,17 +14,20 @@ class Training extends StatefulWidget {
 }
 
 class TrainingState extends State<Training> {
+  //BEN_CORRECITON : Devrait être private.
   Question question;
 
   TrainingState() {
     getNewQuestion();
   }
 
+  //BEN_CORRECITON : Devrait être private.
   void getNewQuestion() {
     question = Question();
     question.generate();
   }
 
+  //BEN_CORRECITON : Devrait être private.
   void onRightAnswerAnswered() {
     getNewQuestion();
   }
@@ -49,6 +57,7 @@ class TrainingState extends State<Training> {
     );
   }
 
+  //BEN_CORRECITON : Devrait être private.
   List<Widget> buildChoiceButtons(int numberOfButton) {
     List<Widget> buttons = List<Widget>();
     for(int i = 0; i < numberOfButton; ++i) {
@@ -58,6 +67,7 @@ class TrainingState extends State<Training> {
     return buttons;
   }
 
+  //BEN_CORRECITON : Devrait être private.
   Padding buildChoiceButton(int index) {
     return Padding(
               padding: const EdgeInsets.all(0),

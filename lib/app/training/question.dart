@@ -7,6 +7,9 @@ class Question {
   static const _NUMBER_OF_POSSIBLE_ANSWERS = 3;
 
   final _random = Random();
+
+  //BEN_CORRECTION : Devrait être private. Pour y accéder, aurait du faire un accesseur (méthode get)
+  //                 ou une propriété (voir ceci : https://www.dartlang.org/guides/language/language-tour#methods).
   final answers = [];
   int rightAnswerPosition;
 
@@ -17,6 +20,7 @@ class Question {
     for (int i = 0; i < answers.length; ++i) answers[i] = Answer("");
   }
 
+  //BEN_REVIEW : Je crois que ce serait logique d'appeller cette fonction dans le constructeur.
   generate() {
     int _rightAnswerIndex = _random.nextInt(Hiraganas.length);
     rightAnswerPosition = _random.nextInt(_NUMBER_OF_POSSIBLE_ANSWERS);

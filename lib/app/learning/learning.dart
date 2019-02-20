@@ -6,6 +6,7 @@ class Learning extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
+      //BEN_REVIEW : Tu aurais pu utiliser un "GridView". Plus facile.
       child: CustomScrollView(
         primary: false,
         slivers: <Widget>[
@@ -16,6 +17,7 @@ class Learning extends StatelessWidget {
               crossAxisCount: 2,
               children: List<Widget>.generate(
                 Hiraganas.length,
+                //BEN_REVIEW : Cela aurait vallu la peine de placer la carte dans son propre Widget.
                 (i) => Card(
                       child: Column(children: <Widget>[
                         Expanded(

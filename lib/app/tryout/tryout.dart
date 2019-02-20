@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:tp3/app/hiragana/hiragana.dart';
 import 'package:tp3/util/dimensions.dart';
 
+//BEN_CORRECTION : Code mort. Inutilisé.
+
 class Tryout extends StatefulWidget {
   State<StatefulWidget> createState() => TryoutState();
 }
